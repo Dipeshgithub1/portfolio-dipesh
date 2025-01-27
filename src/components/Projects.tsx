@@ -42,6 +42,15 @@ const projects = [
     githubLink: "https://github.com/NirbhaySingh74/portfoio",
     imageUrl: projectFour,
   },
+  {
+    title: "Npmjs",
+    description:
+      "Built NpmJs Clone which allows to search any library and mentioned the download package",
+    techStack: "React, Tailwind",
+    liveLink: "https://npmjss.vercel.app/",
+    githubLink: "https://github.com/NirbhaySingh74/npmjs",
+    imageUrl: projectFive,
+  },
   
 ];
 
