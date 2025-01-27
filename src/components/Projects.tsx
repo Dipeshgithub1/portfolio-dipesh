@@ -38,8 +38,8 @@ const projects = [
     description:
       "A sleek, professionally crafted portfolio designed to make a lasting impression with a seamless user experience.",
     techStack: "React, Tailwind, Framer Motion",
-    liveLink: "https://nirbhayportfolio.vercel.app/",
-    githubLink: "https://github.com/NirbhaySingh74/portfoio",
+    liveLink: "https://portfolio-dipesh-ten.vercel.app//",
+    githubLink: "https://github.com/Dipeshgithub1/portfolio-dipesh",
     imageUrl: projectFour,
   },
   {
@@ -48,7 +48,7 @@ const projects = [
       "Built NpmJs Clone which allows to search any library and mentioned the download package",
     techStack: "React, Tailwind",
     liveLink: "https://npmjss.vercel.app/",
-    githubLink: "https://github.com/NirbhaySingh74/npmjs",
+    githubLink: "https://github.com/Dipeshgithub1/Backend--Development",
     imageUrl: projectFive,
   },
   
