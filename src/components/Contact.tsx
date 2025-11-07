@@ -48,19 +48,19 @@ const Contact: React.FC = () => {
   return (
     <motion.section
       id="contact"
-      className="bg-gradient-to-bl from-[var(--background-dark)] to-[var(--background-dark)] text-[var(--text-color)] py-8 px-4"
+      className="py-12 px-4 bg-background text-text dark:bg-dark-background dark:text-dark-text"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
       <motion.div
-        className="max-w-4xl mx-auto bg-[var(--background-light)] p-8 rounded-lg shadow-lg"
+        className="max-w-4xl mx-auto p-8 rounded-lg shadow-lg bg-card dark:bg-dark-card"
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
         <motion.h2
-          className="text-3xl md:text-4xl font-bold mb-12 text-center text-indigo-500"
+          className="text-3xl md:text-4xl font-bold mb-12 text-center text-primary dark:text-dark-primary"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -84,7 +84,7 @@ const Contact: React.FC = () => {
               value={formState.name}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 mt-1 bg-[var(--input-background)] text-[var(--text-color)] rounded-md border border-[var(--border-color)] focus:ring-2 focus:ring-indigo-500 transition-all duration-300"
+              className="w-full px-4 py-2 mt-1 rounded-md border focus:ring-2 transition-all duration-300 bg-item dark:bg-dark-item text-text dark:text-dark-text border-gray-600 dark:border-dark-item focus:ring-primary dark:focus:ring-dark-primary"
             />
           </motion.div>
           <motion.div
@@ -103,7 +103,7 @@ const Contact: React.FC = () => {
               value={formState.email}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 mt-1 bg-[var(--input-background)] text-[var(--text-color)] rounded-md border border-[var(--border-color)] focus:ring-2 focus:ring-indigo-500 transition-all duration-300"
+              className="w-full px-4 py-2 mt-1 rounded-md border focus:ring-2 transition-all duration-300 bg-item dark:bg-dark-item text-text dark:text-dark-text border-gray-600 dark:border-dark-item focus:ring-primary dark:focus:ring-dark-primary"
             />
           </motion.div>
           <motion.div
@@ -122,12 +122,12 @@ const Contact: React.FC = () => {
               value={formState.message}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 mt-1 bg-[var(--input-background)] text-[var(--text-color)] rounded-md border border-[var(--border-color)] focus:ring-2 focus:ring-indigo-500 transition-all duration-300"
+              className="w-full px-4 py-2 mt-1 rounded-md border focus:ring-2 transition-all duration-300 bg-item dark:bg-dark-item text-text dark:text-dark-text border-gray-600 dark:border-dark-item focus:ring-primary dark:focus:ring-dark-primary"
             ></textarea>
           </motion.div>
           <motion.button
             type="submit"
-            className="w-full bg-indigo-500 text-white font-semibold px-4 py-2 rounded-md hover:bg-indigo-600 transition duration-300 btn-submit"
+            className="w-full text-white font-semibold px-4 py-2 rounded-md transition duration-300 btn-submit bg-primary dark:bg-dark-primary hover:bg-secondary dark:hover:bg-dark-secondary"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

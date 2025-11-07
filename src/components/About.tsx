@@ -5,11 +5,11 @@ const About: React.FC = () => {
   return (
     <section
       id="about"
-      className="py-12 px-4 bg-[var(--background-color)] text-[var(--text-color)]"
+      className="py-12 px-4 bg-background text-text dark:bg-dark-background dark:text-dark-text"
     >
       <div className="max-w-4xl mx-auto text-center">
         <motion.h2
-          className="text-3xl md:text-5xl font-bold mb-8 text-indigo-500"
+          className="text-4xl md:text-5xl font-extrabold mb-8 text-primary dark:text-primary"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -17,12 +17,12 @@ const About: React.FC = () => {
           About Me
         </motion.h2>
         <motion.p
-          className="text-lg md:text-2xl mb-8 leading-relaxed"
+          className="text-lg md:text-xl mb-8 leading-relaxed text-text-secondary dark:text-dark-text-secondary"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          Hi, I’m Dipesh!
+          Hi, I’m D!pesh
       I’m a passionate Full Stack Developer with a proven track record of building dynamic,responsive,and user-centric web applications.
       My expertise lies in crafting full-stack solutions using modern technologies and frameworks that not only meet but exceed user expectations.
       I thrive on solving complex problems, collaborating with innovative teams, and bringing ideas to life through clean and efficient code.

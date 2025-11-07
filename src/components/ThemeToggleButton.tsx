@@ -2,21 +2,34 @@ import React, { useEffect, useState } from "react";
 import { FaSun, FaMoon } from "react-icons/fa";
 
 const ThemeToggleButton: React.FC = () => {
-  // Default to "dark" theme if there's no theme set in localStorage
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        return savedTheme === 'dark';
+      }
+      return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    return true; // Default to dark mode if window is not defined (SSR or similar)
+  });
 
   useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
-  }, [theme]);
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  }, [isDarkMode]);
 
   const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "dark" ? "light" : "dark"));
+    setIsDarkMode(prevMode => !prevMode);
   };
 
   return (
-    <button onClick={toggleTheme} className="p-2 text-xl">
-      {theme === "light" ? <FaMoon /> : <FaSun />}
+    <button onClick={toggleTheme} className="p-2 text-xl text-text dark:text-dark-text hover:text-primary dark:hover:text-dark-primary transition-colors duration-300">
+      {isDarkMode ? <FaSun /> : <FaMoon />}
     </button>
   );
 };

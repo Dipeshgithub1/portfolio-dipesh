@@ -1,8 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ThemeToggleButton from "./ThemeToggleButton";
+import { motion } from "framer-motion";
 
 const Header: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 0;
+      if (isScrolled !== scrolled) {
+        setScrolled(isScrolled);
+      }
+    };
+
+    document.addEventListener("scroll", handleScroll);
+
+    return () => {
+      document.removeEventListener("scroll", handleScroll);
+    };
+  }, [scrolled]);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -13,11 +30,23 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="w-full py-4 fixed top-0 left-0 z-10 shadow-md bg-[var(--background-color)] text-[var(--text-color)]">
+    <header className={`w-full py-4 fixed top-0 left-0 z-10 shadow-md transition-all duration-300 ${
+      scrolled ? 'bg-card dark:bg-dark-card bg-opacity-90 backdrop-blur-sm' : 'bg-background dark:bg-dark-background'
+    } text-text dark:text-dark-text`}>
       <div className="container mx-auto px-4 flex justify-between items-center relative">
+        {/* Logo/Site Title */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-2xl font-bold text-primary dark:text-dark-primary"
+        >
+          <a href="#">Dipesh.dev</a>
+        </motion.div>
+
         {/* Toggle button */}
         <button
-          className={`text-[var(--text-color)] md:hidden ${
+          className={`text-text dark:text-dark-text md:hidden ${
             menuOpen ? "absolute top-4 right-4" : ""
           }`}
           onClick={toggleMenu}
@@ -60,13 +89,13 @@ const Header: React.FC = () => {
         <nav
           className={`${
             menuOpen ? "block" : "hidden"
-          } w-full md:flex md:items-center md:w-auto`}
+          } w-full md:flex md:items-center md:flex-grow md:justify-center`}
         >
-          <ul className="flex flex-col md:flex-row md:justify-center md:space-x-8">
+          <ul className="flex flex-col md:flex-row md:space-x-8">
             <li className="py-2 md:py-0">
               <a
                 href="#"
-                className="block py-2 hover:text-indigo-500 transition duration-300"
+                className="block py-2 hover:text-primary dark:hover:text-dark-primary transition duration-300"
                 onClick={handleNavLinkClick}
               >
                 Home
@@ -75,7 +104,7 @@ const Header: React.FC = () => {
             <li className="py-2 md:py-0">
               <a
                 href="#about"
-                className="block py-2 hover:text-indigo-500 transition duration-300"
+                className="block py-2 hover:text-primary dark:hover:text-dark-primary transition duration-300"
                 onClick={handleNavLinkClick}
               >
                 About
@@ -83,8 +112,17 @@ const Header: React.FC = () => {
             </li>
             <li className="py-2 md:py-0">
               <a
+                href="#services"
+                className="block py-2 hover:text-primary dark:hover:text-dark-primary transition duration-300"
+                onClick={handleNavLinkClick}
+              >
+                Services
+              </a>
+            </li>
+            <li className="py-2 md:py-0">
+              <a
                 href="#projects"
-                className="block py-2 hover:text-indigo-500 transition duration-300"
+                className="block py-2 hover:text-primary dark:hover:text-dark-primary transition duration-300"
                 onClick={handleNavLinkClick}
               >
                 Projects
@@ -92,17 +130,8 @@ const Header: React.FC = () => {
             </li>
             <li className="py-2 md:py-0">
               <a
-                href="#skills"
-                className="block py-2 hover:text-indigo-500 transition duration-300"
-                onClick={handleNavLinkClick}
-              >
-                Skills
-              </a>
-            </li>
-            <li className="py-2 md:py-0">
-              <a
                 href="#contact"
-                className="block py-2 hover:text-indigo-500 transition duration-300"
+                className="block py-2 hover:text-primary dark:hover:text-dark-primary transition duration-300"
                 onClick={handleNavLinkClick}
               >
                 Contact
@@ -112,7 +141,7 @@ const Header: React.FC = () => {
         </nav>
 
         {/* Theme Toggle Button */}
-        <div className="ml-auto">
+        <div className="md:ml-auto">
           <div onClick={handleNavLinkClick}>
             <ThemeToggleButton />
           </div>

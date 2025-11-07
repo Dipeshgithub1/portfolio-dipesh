@@ -1,14 +1,10 @@
 import React from "react";
-import { FaTwitter, FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { FaTwitter, FaGithub, FaLinkedinIn, FaMedium } from "react-icons/fa";
 
 const Footer: React.FC = () => {
   return (
     <footer
-      className="w-full py-6"
-      style={{
-        backgroundColor: "var(--card-background-color)",
-        color: "var(--text-color)",
-      }}
+      className="w-full py-6 bg-card text-text dark:bg-dark-card dark:text-dark-text"
     >
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
@@ -17,7 +13,7 @@ const Footer: React.FC = () => {
               <li className="mb-2 md:mb-0">
                 <a
                   href="#"
-                  className="hover:text-indigo-500 transition duration-300"
+                  className="hover:text-primary dark:hover:text-dark-primary transition duration-300"
                 >
                   Home
                 </a>
@@ -25,15 +21,23 @@ const Footer: React.FC = () => {
               <li className="mb-2 md:mb-0">
                 <a
                   href="#about"
-                  className="hover:text-indigo-500 transition duration-300"
+                  className="hover:text-primary dark:hover:text-dark-primary transition duration-300"
                 >
                   About
                 </a>
               </li>
               <li className="mb-2 md:mb-0">
                 <a
+                  href="#services"
+                  className="hover:text-primary dark:hover:text-dark-primary transition duration-300"
+                >
+                  Services
+                </a>
+              </li>
+              <li className="mb-2 md:mb-0">
+                <a
                   href="#projects"
-                  className="hover:text-indigo-500 transition duration-300"
+                  className="hover:text-primary dark:hover:text-dark-primary transition duration-300"
                 >
                   Projects
                 </a>
@@ -41,7 +45,7 @@ const Footer: React.FC = () => {
               <li className="mb-2 md:mb-0">
                 <a
                   href="#skills"
-                  className="hover:text-indigo-500 transition duration-300"
+                  className="hover:text-primary dark:hover:text-dark-primary transition duration-300"
                 >
                   Skills
                 </a>
@@ -49,7 +53,7 @@ const Footer: React.FC = () => {
               <li className="mb-2 md:mb-0">
                 <a
                   href="#contact"
-                  className="hover:text-indigo-500 transition duration-300"
+                  className="hover:text-primary dark:hover:text-dark-primary transition duration-300"
                 >
                   Contact
                 </a>
@@ -63,7 +67,7 @@ const Footer: React.FC = () => {
                 <a
                   href="https://x.com/Dipeshmehr"
                   target="_blank"
-                  className="hover:text-indigo-500 transition duration-300"
+                  className="hover:text-primary dark:hover:text-dark-primary transition duration-300"
                 >
                   <FaTwitter />
                 </a>
@@ -72,7 +76,7 @@ const Footer: React.FC = () => {
                 <a
                   href="https://github.com/Dipeshgithub1"
                   target="_blank"
-                  className="hover:text-indigo-500 transition duration-300"
+                  className="hover:text-primary dark:hover:text-dark-primary transition duration-300"
                 >
                   <FaGithub />
                 </a>
@@ -81,9 +85,18 @@ const Footer: React.FC = () => {
                 <a
                   href="https://www.linkedin.com/in/dipesh-kumar-701545226/"
                   target="_blank"
-                  className="hover:text-indigo-500 transition duration-300"
+                  className="hover:text-primary dark:hover:text-dark-primary transition duration-300"
                 >
                   <FaLinkedinIn />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://medium.com/@your-medium-profile" // Replace with your actual Medium profile URL
+                  target="_blank"
+                  className="hover:text-primary dark:hover:text-dark-primary transition duration-300"
+                >
+                  <FaMedium />
                 </a>
               </li>
             </ul>

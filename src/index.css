@@ -2,6 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply m-0 p-0 bg-black;
+@layer base {
+  body {
+    @apply font-sans bg-background text-text;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-primary;
+  }
+  p {
+    @apply text-base text-text-secondary leading-relaxed;
+  }
+  h1 {
+    @apply text-4xl font-bold;
+  }
+  h2 {
+    @apply text-3xl font-semibold;
+  }
+  h3 {
+    @apply text-2xl font-semibold;
+  }
+  h4 {
+    @apply text-xl font-semibold;
+  }
+  h5 {
+    @apply text-lg font-semibold;
+  }
+  h6 {
+    @apply text-base font-semibold;
+  }
 }
